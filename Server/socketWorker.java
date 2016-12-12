@@ -34,6 +34,7 @@ class SocketWorker implements Runnable {
         }
         Scanner in = new Scanner(System.in);
         String line = "";
+        System.out.println("Inserisci nickname:");
         String nickname = in.nextLine(); //il "nome" del mittente (client)
         while(line != null){
           try{
