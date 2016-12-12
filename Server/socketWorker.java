@@ -32,16 +32,16 @@ class SocketWorker implements Runnable {
           System.out.println("Errore: in|out fallito");
           System.exit(-1);
         }
-
+        Scanner in = new Scanner(System.in);
         String line = "";
-        int clientPort = client.getPort(); //il "nome" del mittente (client)
+        String nickname = in.nextLine(); //il "nome" del mittente (client)
         while(line != null){
           try{
             line = in.readLine();
             //Manda lo stesso messaggio appena ricevuto con in aggiunta il "nome" del client
-            out.println("Server-->" + clientPort + ">> " + line);
+            out.println("Server-->" + nickname + ">> " + line);
             //scrivi messaggio ricevuto su terminale
-            System.out.println(clientPort + ">> " + line);
+            System.out.println(nickname + ">> " + line);
            } catch (IOException e) {
             System.out.println("lettura da socket fallito");
             System.exit(-1);
